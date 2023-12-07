@@ -1,0 +1,77 @@
+
+
+.projects-section {
+    position: relative;
+    overflow: hidden;
+    width: auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    /* max-height: 100vh; */
+}
+
+.projects-section::before {
+    content: "";
+    background-image: url('../images/bgProjects.jpg'); /* Replace with your image path */
+    background-size: cover;
+    filter: brightness(50%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background-position: 70%; */
+    z-index: -1;
+  }
+  .boxstyle{
+    width: 500px;
+  height: 220px;
+  background-color: grey;
+  transform: perspective(1000px) rotateX(35deg) rotateY(4deg) rotateZ(30deg);
+  transform-origin: center center 0px;
+  transition: all 0.5s ease-out;
+  animation-name: animate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  box-shadow: 0 10px 40px 2px rgba(65, 60, 60, 0.4);
+  }
+  .boxstyle:hover{
+    /* background-color: black; */
+    cursor: pointer;
+    animation: unset;
+    /* margin-top: 18vh; */
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  .boxstyle2{
+    width: 500px;
+  height: 220px;
+  background-color: grey;
+  transform: perspective(1000px) rotateX(35deg) rotateY(4deg) rotateZ(-30deg);
+  transform-origin: center center 0px;
+  transition: all 0.5s ease-out;
+  animation-name: animate;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+  box-shadow: 0 10px 40px 2px rgba(65, 60, 60, 0.4);
+  /* box-shadow: 0 10px 40px 2px rgba(86, 78, 78, 0.4); */
+  }
+  .wether_image{
+    display: none;
+  }
+  .boxstyle2:hover{
+    display: inline;
+    /* background-color: black; */
+    cursor: pointer;
+    /* animation: unset; */
+    /* margin-top: 18vh; */
+    transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
