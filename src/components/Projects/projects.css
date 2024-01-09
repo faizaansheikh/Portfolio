@@ -13,9 +13,9 @@
 
 .projects-section::before {
     content: "";
-    background-image: url('../images/bgProjects.jpg'); /* Replace with your image path */
+    background-image: url('../images/bg88.jpg'); /* Replace with your image path */
     background-size: cover;
-    filter: brightness(50%);
+    filter: brightness(60%);
     position: absolute;
     top: 0;
     left: 0;

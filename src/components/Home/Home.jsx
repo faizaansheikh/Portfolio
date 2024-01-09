@@ -19,7 +19,7 @@ function Home() {
   return (
     <>
       <div className="home-section" id="Home">
-        <Navbar />
+      
 
         <div className="mains">
           <div className="border-set"></div>

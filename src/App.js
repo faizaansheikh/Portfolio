@@ -14,13 +14,16 @@ import Home from "./components/Home/Home";
 import About from "./components/about/About";
 import Projects from "./components/Projects/Projects";
 import Skills from "./components/Skills/Skills";
+import Navbar from "./components/Home/Navbar";
 function App() {
+
   return (
     <>
+      <Navbar />
       <Home />
-      <About />
+      {/* <About /> */}
       <Projects />
-      <Skills/>
+      <Skills />
     </>
   );
 }

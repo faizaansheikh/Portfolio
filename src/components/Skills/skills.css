@@ -22,3 +22,6 @@
     /* background-position: 70%; */
     z-index: -1;
   }
+  .CircularProgressbar-text {
+    transform: translate(-8px, 3px);
+}

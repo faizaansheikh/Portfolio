@@ -26,7 +26,7 @@ function Navbar(props) {
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-
+  
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -103,7 +103,7 @@ function Navbar(props) {
                   pl: "30px",
                 }}
               >
-                <Link to={item} smooth={true} duration={800}>
+                <Link to={item} smooth={true} duration={800} >
                   {item}
                   {"/>"}
                 </Link>
