@@ -3,10 +3,15 @@ import "./skills.css";
 import { Box, Grid, LinearProgress, Typography } from "@mui/material";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import AnimatedProgressProvider from "./AnimatedProgressProvider";
-import { easeQuadInOut } from 'd3-ease';
-function Skills() {
-  
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+function Skills({skill}) {
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      easing: 'ease-in-out', // Animation easing
+    });
+  }, []);
   const styling = {
     fontFamily: "'Barlow Condensed', sans-serif",
     fontFamily: "'Dancing Script', cursive",
@@ -32,15 +37,45 @@ function Skills() {
     wordSpacing: "0.5px",
     fontSize: { xs: "12px", md: "16px" },
   };
-  const lang = [
-    { title: "HTML 5", per: 85 },
-    { title: "CSS 3", per: 75 },
-    { title: "React Js", per: 80 },
-    { title: "Next Js", per: 70 },
-    { title: "Javascript", per: 85 },
-    { title: "Node Js", per: 40 },
-  ];
+  const [lang,setLang] = useState([
+    { title: "HTML 5", per: 0 },
+    { title: "CSS 3", per: 0 },
+    { title: "Javascript", per: 0 },
+    { title: "React Js", per: 0 },
+    { title: "Next Js", per: 0 },
+    { title: "Node Js", per: 0 },
+  ])
+  const [hovered,setHovered] = useState(false)
+  // let lang = [
+    // { title: "HTML 5", per: 85 },
+    // { title: "CSS 3", per: 80 },
+    // { title: "Javascript", per: 85 },
+    // { title: "React Js", per: 85 },
+    // { title: "Next Js", per: 70 },
+    // { title: "Node Js", per: 40 },
+  
+  // ];
+ 
+ 
+ useEffect(()=>{
+ 
+    setLang((prevLang) => {
+      const updatedLang = [...prevLang];
+      
+      updatedLang[0].per = 85
+      updatedLang[1].per = 80
+      updatedLang[2].per = 85
+      updatedLang[3].per = 85
+      updatedLang[4].per = 70
+      updatedLang[5].per = 40
+     
+  
+      return updatedLang;
+    });
 
+  
+ },[skill])
+ 
   return (
     // <div className="skills-section" id="Skills">
     <Box
@@ -71,9 +106,15 @@ function Skills() {
             interface that captivates users
           </Typography>
         </Grid>
-        <Grid sx={{ display: "flex", justifyContent: "center" }} container>
+        <Grid sx={{ display: "flex", justifyContent: "center" }} container spacing={0}>
+          
           {lang.map((el, i) => (
+      
+
+       
             <Grid
+           
+            
               key={i}
               item
               xs={6}
@@ -85,10 +126,12 @@ function Skills() {
                 alignItems:'center',
                 // p: "0px 25px 0px 25px",
                 mb: "60px",
+              
               }}
             >
-              
+                  
               <Box
+              data-aos='fade-down'
                 sx={{
                   width: 150,
                   height: 150,
@@ -96,37 +139,30 @@ function Skills() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                 
                 }}
               >
-                <AnimatedProgressProvider
-  valueStart={0}
-  valueEnd={66}
-  duration={1.4}
-  easingFunction={easeQuadInOut}
->
-  {(value) => {
-    const roundedValue = Math.round(value);
-    return (
-                <CircularProgressbar
-                  value={el.per}
-                  text={`${el.per}%`}
-                  background
-                  backgroundPadding={8}
-                  styles={buildStyles({
-                    backgroundColor: "black",
-                    textColor: "#fff",
-                    pathColor: "#6927aa",
-                    trailColor: "white",
-                    textSize: "10px", // Adjust the text size as needed
-                    // pathTransitionDuration: 0.5, // Control the animation duration
-                    textAlign: "center",
-                    pathTransition: 'none'
-                    // pathTransitionDuration:1
-                  })}
-                />
-                );
-              }}
-              </AnimatedProgressProvider>
+              
+      
+              <CircularProgressbar
+           value={el.per}
+           text={`${el.per}%`}
+           background
+           backgroundPadding={8}
+           styles={buildStyles({
+             backgroundColor: "black",
+             textColor: "#fff",
+             pathColor: "#6927aa",
+             trailColor: "white",
+             textSize: "10px", // Adjust the text size as needed
+             pathTransitionDuration: 1, // Control the animation duration
+             textAlign: "center",
+            //  pathTransition: 0.1,
+          
+             // pathTransitionDuration:1
+           })}
+         />
+           
               </Box>
              <Box>
              <Typography
@@ -140,6 +176,7 @@ function Skills() {
                   {el.title}
                 </Typography>
              </Box>
+           
             </Grid>
           ))}
         </Grid>

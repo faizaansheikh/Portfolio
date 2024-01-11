@@ -1,0 +1,22 @@
+/* GlassBackground.css */
+
+
+  .glass-background {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    background-color: #110c28;
+    /* background-color: #211e1e; */
+
+    
+    /* backdrop-filter: blur(50px); */
+    /* background-color: transparent; */
+    /* align-items: first baseline; */
+    /* Adjust this to your desired height */
+}
+
+  

@@ -1,10 +1,12 @@
 import { Box, Grid, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./projects.css";
 import wether from "./images/wether1.JPG";
 import hotel from "./images/hotel2.JPG";
 import expense from "./images/expense1.JPG";
 import quiz from "./images/wether1.JPG";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 function Projects() {
   const boxdata = [
     { id: 1, urls: "https://weather-a55d2.web.app/", image: wether, title: "Weather App React" },
@@ -43,6 +45,12 @@ function Projects() {
     
     window.open(url, '_blank');
   };
+  useEffect(() => {
+    AOS.init({
+      duration: 1000, // Animation duration
+      easing: 'ease-in-out', // Animation easing
+    });
+  }, []);
   return (
     <>
       <div className="projects-section" id="Projects">
@@ -73,10 +81,12 @@ function Projects() {
                     item
                     xs={12}
                     md={6}
+                    data-aos='fade-up'
                   >
                     {" "}
                    {/* <a href=""> */}
                    <div
+                 
                      onClick={()=>handleButtonClick(elem.urls)}
                       onMouseEnter={() => setImageVisible(elem.id)}
                       onMouseLeave={() => setImageVisible(null)}
@@ -89,6 +99,7 @@ function Projects() {
                     >
                       {isImageVisible ===  elem.id ? (
                         <img
+                        data-aos='fade-down'
                           style={{
                             width: "100%",
                             height: "100%",

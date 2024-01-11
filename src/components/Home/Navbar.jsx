@@ -10,23 +10,26 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
-// import MenuIcon from '@mui/icons-material/Menu';
+import ReorderIcon from '@mui/icons-material/Reorder';
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import "./navbar.css";
-import { Link } from "react-scroll";
+import { Events, Link, scrollSpy, scroller } from "react-scroll";
 const drawerWidth = 240;
 const navItems = ["Home", "Projects", "Skills", "Contact"];
 
 function Navbar(props) {
-  const { window } = props;
+  const { window, setSkill } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
   };
-  
+  const handleSkillsSectionActive = () => {
+    // Your functionality or function call when skills section becomes active
+    console.log("Skills section is now active!");
+  };
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
@@ -47,6 +50,24 @@ function Navbar(props) {
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
+  const handleClicked = () => {
+    setSkill(true);
+  };
+  const handleScrollToSkills = () => {
+    // Your custom functionality here
+    console.log("Scrolled to Skills section");
+  };
+
+  const fontFam = {
+    fontFamily: "'Barlow Condensed', sans-serif",
+    fontFamily: "'Dancing Script', cursive",
+    fontFamily: "'Edu VIC WA NT Beginner', cursive",
+    fontFamily: "'Indie Flower', cursive",
+    fontFamily: "'Lobster', cursive",
+    fontFamily: "'Oswald', sans-serif",
+    fontFamily: "'Teko', sans-serif",
+    fontFamily: "'ZCOOL QingKe HuangYou', sans-serif",
+  };
 
   return (
     <Box sx={{ display: "flex" }}>
@@ -65,17 +86,49 @@ function Navbar(props) {
           <IconButton
             color="inherit"
             aria-label="open drawer"
-            edge="start"
+            // edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{
+              ...fontFam,
+              letterSpacing: "1px",
+              // flexGrow: 1,
+              display: { xs: "block", sm: "none" },
+              fontWeight: "bold",
+              fontSize: "29px",
+            }}
           >
-            {/* <MenuIcon /> */}
-            Toggle
+           
+            <ReorderIcon size='15px'/>
           </IconButton>
+          <IconButton
+            color="inherit"
+            aria-label="open drawer"
+            // edge="start"
+            onClick={handleDrawerToggle}
+            sx={{
+              ...fontFam,
+              letterSpacing: "1px",
+              flexGrow: 0.7,
+              display: { xs: "flex", sm: "none" },
+              fontWeight: "bold",
+              textAlign: "center",
+              fontSize: "29px",
+              textAlign: "center",
+            }}
+          >
+            <span style={{ color: "", fontWeight: "bold" }}>{"<"}</span>
+            Portfolio{" "}
+            <span style={{ color: "mediumslateblue", fontWeight: "bold" }}>
+              {"/>"}
+            </span>
+          </IconButton>
+
           <Typography
             variant="h6"
             component="div"
             sx={{
+              ...fontFam,
+              letterSpacing: "1px",
               flexGrow: 1,
               display: { xs: "none", sm: "block" },
               fontWeight: "bold",
@@ -83,10 +136,8 @@ function Navbar(props) {
             }}
           >
             {/* 25101F */}
-            <span style={{ color: "mediumslateblue", fontWeight: "bold" }}>
-              {"<"}
-            </span>
-            Hello World{" "}
+            <span style={{ color: "", fontWeight: "bold" }}>{"<"}</span>
+            Portfolio{" "}
             <span style={{ color: "mediumslateblue", fontWeight: "bold" }}>
               {"/>"}
             </span>
@@ -103,7 +154,13 @@ function Navbar(props) {
                   pl: "30px",
                 }}
               >
-                <Link to={item} smooth={true} duration={800} >
+                <Link
+                  to={item}
+                  smooth={true}
+                  duration={800}
+                  onClick={handleClicked}
+                  // onSetActive={handleScrollToSkills}
+                >
                   {item}
                   {"/>"}
                 </Link>
@@ -127,6 +184,7 @@ function Navbar(props) {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              transition: 'background-color 0.8s ease-in-out'
             },
           }}
         >
