@@ -5,6 +5,7 @@ import Navbar from "./Navbar";
 import { Link } from "react-scroll";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
+import { Box } from "@mui/material";
 function Home() {
   // const scrollToSection = () => {
   //   let section = false;
@@ -50,6 +51,7 @@ function Home() {
             </div>
           </div>
         </Link>
+       
       </div>
     </>
   );

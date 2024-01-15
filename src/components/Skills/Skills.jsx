@@ -1,15 +1,27 @@
 import React, { useEffect, useState } from "react";
 import "./skills.css";
-import { Box, Grid, LinearProgress, Typography } from "@mui/material";
+import {
+  Autocomplete,
+  Box,
+  Button,
+  Grid,
+  LinearProgress,
+  TextField,
+  Typography,
+} from "@mui/material";
 import ProgressBar from "@ramonak/react-progress-bar";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
-import AOS from 'aos'
-import 'aos/dist/aos.css'
-function Skills({skill}) {
+import AOS from "aos";
+import "aos/dist/aos.css";
+import ClearIcon from '@mui/icons-material/Clear';
+function Skills({ skill }) {
+
+ const [isActive,setIsActive] = useState(false)
+ 
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration
-      easing: 'ease-in-out', // Animation easing
+      easing: "ease-in-out", // Animation easing
     });
   }, []);
   const styling = {
@@ -37,45 +49,62 @@ function Skills({skill}) {
     wordSpacing: "0.5px",
     fontSize: { xs: "12px", md: "16px" },
   };
-  const [lang,setLang] = useState([
-    { title: "HTML 5", per: 0 },
-    { title: "CSS 3", per: 0 },
-    { title: "Javascript", per: 0 },
-    { title: "React Js", per: 0 },
-    { title: "Next Js", per: 0 },
-    { title: "Node Js", per: 0 },
-  ])
-  const [hovered,setHovered] = useState(false)
-  // let lang = [
-    // { title: "HTML 5", per: 85 },
-    // { title: "CSS 3", per: 80 },
-    // { title: "Javascript", per: 85 },
-    // { title: "React Js", per: 85 },
-    // { title: "Next Js", per: 70 },
-    // { title: "Node Js", per: 40 },
-  
-  // ];
- 
- 
- useEffect(()=>{
- 
-    setLang((prevLang) => {
-      const updatedLang = [...prevLang];
-      
-      updatedLang[0].per = 85
-      updatedLang[1].per = 80
-      updatedLang[2].per = 85
-      updatedLang[3].per = 85
-      updatedLang[4].per = 70
-      updatedLang[5].per = 40
-     
-  
-      return updatedLang;
-    });
+  const filtArr = [
+    { label: "HTML 5" },
+    { label: "CSS 3" },
+    { label: "Javascript" },
+    { label: "React Js" },
+    { label: "Next Js" },
+    { label: "Material UI" },
+    { label: "Node Js" },
+  ]
+  const obj = [
+    { title: "HTML 5", per: 85 },
+    { title: "CSS 3", per: 80 },
+    { title: "Javascript", per: 85 },
+    { title: "React Js", per: 85 },
+    { title: "Next Js", per: 70 },
+    { title: "Material UI", per: 80 },
+    { title: "Node Js", per: 40 },
+  ]
+  const [lang, setLang] = useState(obj);
 
-  
- },[skill])
+  const filterHandle = (title)=>{
+    setIsActive(!isActive)
+    const filetered = lang.filter(el => el.title === title)
+    
+    setLang(filetered)
+    if(isActive){
+      setLang(obj)
+    }
+  }
  
+  // let lang = [
+  // { title: "HTML 5", per: 85 },
+  // { title: "CSS 3", per: 80 },
+  // { title: "Javascript", per: 85 },
+  // { title: "React Js", per: 85 },
+  // { title: "Next Js", per: 70 },
+  // { title: "Node Js", per: 40 },
+
+  // ];
+
+  // useEffect(() => {
+  //   setLang((prevLang) => {
+  //     const updatedLang = [...prevLang];
+
+  //     updatedLang[0].per = 85;
+  //     updatedLang[1].per = 80;
+  //     updatedLang[2].per = 85;
+  //     updatedLang[3].per = 85;
+  //     updatedLang[4].per = 70;
+  //     updatedLang[5].per = 85;
+  //     updatedLang[6].per = 40;
+
+  //     return updatedLang;
+  //   });
+  // }, [skill]);
+
   return (
     // <div className="skills-section" id="Skills">
     <Box
@@ -105,33 +134,59 @@ function Skills({skill}) {
             expertise to every project, ensuring a polished and responsive
             interface that captivates users
           </Typography>
-        </Grid>
-        <Grid sx={{ display: "flex", justifyContent: "center" }} container spacing={0}>
+          {/* <Autocomplete
+            disablePortal
+            id="combo-box-demo"
+            options={skillarr}
+            sx={{ width: 300 }}
+            renderInput={(params) => <TextField {...params} label="Movie" />}
+          /> */}
           
-          {lang.map((el, i) => (
-      
+          <Box sx={{display:'flex',justifyContent:{xs:'center',md:'space-around'},alignItems:'right',mt:'10px',flexWrap:'wrap'}}>
+             {lang.map((el,i)=>(
+             <Button
+             sx={{
+               color: '#FFFFFF',
+               fontSize: { sm: '10px', md: '15px' },
+               m: { xs: '5px', md: '0px' },
+               border:'2px solid #6927aa',
+               mb: { xs: '13px', md: '10px' },
+               '&:hover': { border: '2px solid #FFFFFF',color:'#6927aa' },
+              
+             }}
+             key={i}
+             onClick={()=>filterHandle(el.title)}
+           >
+             {el.title}
 
-       
-            <Grid
+             <Typography sx={{display:!isActive ? 'none':'block',fontSize:'22px',mt:'5px',ml:'5px',color:'white','& hover':{color:'white'}}} onClick={()=>{}}><ClearIcon fontSize="22px"/></Typography>
+           </Button>
+             ))}
            
-            
+            </Box>
+        </Grid>
+        <Grid
+          sx={{ display: "flex", justifyContent: "center" }}
+          container
+          spacing={0}
+        >
+          {lang?.map((el, i) => (
+            <Grid
               key={i}
               item
               xs={6}
-              md={4}
+              md={3}
               sx={{
                 display: "flex",
                 justifyContent: "center",
-                flexDirection:'column',
-                alignItems:'center',
+                flexDirection: "column",
+                alignItems: "center",
                 // p: "0px 25px 0px 25px",
-                mb: "60px",
-              
+                mb: "40px",
               }}
             >
-                  
               <Box
-              data-aos='fade-down'
+                data-aos="fade-down"
                 sx={{
                   width: 150,
                   height: 150,
@@ -139,33 +194,29 @@ function Skills({skill}) {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                 
                 }}
               >
-              
-      
-              <CircularProgressbar
-           value={el.per}
-           text={`${el.per}%`}
-           background
-           backgroundPadding={8}
-           styles={buildStyles({
-             backgroundColor: "black",
-             textColor: "#fff",
-             pathColor: "#6927aa",
-             trailColor: "white",
-             textSize: "10px", // Adjust the text size as needed
-             pathTransitionDuration: 1, // Control the animation duration
-             textAlign: "center",
-            //  pathTransition: 0.1,
-          
-             // pathTransitionDuration:1
-           })}
-         />
-           
+                <CircularProgressbar
+                  value={el.per}
+                  text={`${el.per}%`}
+                  background
+                  backgroundPadding={8}
+                  styles={buildStyles({
+                    backgroundColor: "black",
+                    textColor: "#fff",
+                    pathColor: "#6927aa",
+                    trailColor: "white",
+                    textSize: "10px", // Adjust the text size as needed
+                    pathTransitionDuration: 1, // Control the animation duration
+                    textAlign: "center",
+                    //  pathTransition: 0.1,
+
+                    // pathTransitionDuration:1
+                  })}
+                />
               </Box>
-             <Box>
-             <Typography
+              <Box>
+                <Typography
                   sx={{
                     color: "white",
                     fontSize: "18px",
@@ -175,8 +226,7 @@ function Skills({skill}) {
                 >
                   {el.title}
                 </Typography>
-             </Box>
-           
+              </Box>
             </Grid>
           ))}
         </Grid>

@@ -5,6 +5,7 @@ import wether from "./images/wether1.JPG";
 import hotel from "./images/hotel2.JPG";
 import expense from "./images/expense1.JPG";
 import quiz from "./images/wether1.JPG";
+import wether12 from "./images/wether12.JPG";
 import AOS from 'aos'
 import 'aos/dist/aos.css'
 function Projects() {
@@ -12,7 +13,7 @@ function Projects() {
     { id: 1, urls: "https://weather-a55d2.web.app/", image: wether, title: "Weather App React" },
     { id: 2, urls: "https://xresort-53b181.netlify.app", image: hotel, title: "Website UI React" },
     { id: 3, urls: "https://expenseappx.netlify.app/", image: expense, title: "Expense App React" },
-    { id: 4, urls: "https://xresort-53b181.netlify.app", image: quiz, title: "Quiz App Flutter" },
+    { id: 4, urls: "https://weathernew-three.vercel.app/", image: wether12, title: "Weather 2 React" },
   ];
   const setwidth = "500px";
   const setheight = "220px";

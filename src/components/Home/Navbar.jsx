@@ -72,7 +72,7 @@ function Navbar(props) {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-
+   
       <AppBar
         sx={{
           bgcolor: "transparent",
@@ -143,6 +143,7 @@ function Navbar(props) {
             </span>
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
+       
             {navItems.map((item) => (
               <IconButton
                 className="nav-linkss"

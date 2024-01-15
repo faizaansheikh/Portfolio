@@ -27,9 +27,23 @@ function Contact() {
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease-in-out;
-
+    width:20px
     &:hover {
       background-color: rgba(255, 255, 255, 0.25);
+    }
+    @media (max-width: 600px) {
+      /* Adjust margin for mobile screens */
+      margin: 20px;
+    }
+  
+    @media (min-width: 601px) and (max-width: 960px) {
+      /* Adjust margin for tablets or smaller screens */
+      margin: 40px;
+    }
+  
+    @media (min-width: 961px) {
+      /* Default margin for larger screens */
+      margin: 80px;
     }
   `;
   const fontFam = {
@@ -57,7 +71,7 @@ function Contact() {
     pb: "10px",
   };
   const exp = [
-    "Designed and implemented responsive and user-friendly interfaces for [mention ",
+    "ABC XYZ analysis for supply chain optimization",
     "Collaborated with cross-functional teams to ensure seamless integration of front-end ",
     "Employed cutting-edge technologies such as [mention relevant technologies",
   ];
@@ -120,14 +134,14 @@ function Contact() {
           </Grid>
           <Grid item xs={12} md={10} data-aos='fade-left'>
             <Typography sx={stylingPara}>
-              Duration: [Start Date] - Present I have been contributing as a
-              Front End Developer at Finosys for the past year, actively shaping
+              Duration: 23 August 2022 - Present I have been contributing as a
+              Front End Developer at Finosys for the past few years, actively shaping
               user interfaces and enhancing the overall user experience. During
-              this period, I have successfully:
+              this period, I have completed:
             </Typography>
             {exp.map((el, i) => (
               <>
-                <Typography sx={stylingPara}>
+                <Typography key={i} sx={stylingPara}>
                   <span
                     style={{
                       color: "#1b133f",
