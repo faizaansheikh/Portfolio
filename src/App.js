@@ -50,7 +50,7 @@ function App() {
     >
       <ArrowUpwardIcon fontSize="35px"/>
     </div>
-     <div data-aos='fade-right'>
+     <div >
      
       <Navbar setSkill={setSkill} />
      

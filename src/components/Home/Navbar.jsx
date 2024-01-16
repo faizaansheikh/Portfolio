@@ -22,42 +22,6 @@ const navItems = ["Home", "Projects", "Skills", "Contact"];
 function Navbar(props) {
   const { window, setSkill } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-  const handleSkillsSectionActive = () => {
-    // Your functionality or function call when skills section becomes active
-    console.log("Skills section is now active!");
-  };
-  const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
-      </Typography>
-      <Divider />
-      <List>
-        {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List>
-    </Box>
-  );
-
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-  const handleClicked = () => {
-    setSkill(true);
-  };
-  const handleScrollToSkills = () => {
-    // Your custom functionality here
-    console.log("Scrolled to Skills section");
-  };
-
   const fontFam = {
     fontFamily: "'Barlow Condensed', sans-serif",
     fontFamily: "'Dancing Script', cursive",
@@ -68,17 +32,100 @@ function Navbar(props) {
     fontFamily: "'Teko', sans-serif",
     fontFamily: "'ZCOOL QingKe HuangYou', sans-serif",
   };
+  const handleDrawerToggle = () => {
+    setMobileOpen((prevState) => !prevState);
+  };
+  const handleSkillsSectionActive = () => {
+    // Your functionality or function call when skills section becomes active
+    console.log("Skills section is now active!");
+  };
+  const handleClicked = () => {
+    // setSkill(true);
+    setMobileOpen(false)
+  };
+  
+  const drawer = (
+    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center",color:'white' }}>
+       <Typography
+            variant="h6"
+            component="div"
+            sx={{
+              ...fontFam,
+              letterSpacing: "1px",
+              flexGrow: 1,
+              // display: { xs: "none", sm: "block" },
+              fontWeight: "bold",
+              fontSize: "29px",
+              mt:'20px'
+            }}
+          >
+            {/* 25101F */}
+            <span style={{ color: "", fontWeight: "bold" }}>{"<"}</span>
+            Portfolio{" "}
+            <span style={{ color: "mediumslateblue", fontWeight: "bold" }}>
+              {"/>"}
+            </span>
+          </Typography>
+      <Divider />
+      <List>
+        {navItems.map((item,i) => (
+          <ListItem key={i} disablePadding>
+            <ListItemButton sx={{ textAlign: "center" }}>
+              {/* <ListItemText primary={item} /> */}
+              <IconButton
+                // className="nav-linkss"
+                key={item}
+                sx={{
+                  ...fontFam,
+                  color: "white",
+                  fontSize: "22px",
+                  fontWeight: "300",
+                  pl: "30px",
+                  pt:'20px',
+                  '& hover':{color:'grey'}
+                }}
+              >
+                <Link
+                  to={item}
+                  smooth={true}
+                  duration={800}
+                  onClick={handleClicked}
+                  // onSetActive={handleScrollToSkills}
+                >
+                  {item}
+                  {"/>"}
+                </Link>
+              </IconButton>
+            </ListItemButton>
+          </ListItem>
+        ))}
+      </List>
+    </Box>
+  );
+
+  const container =
+    window !== undefined ? () => window().document.body : undefined;
+ 
+  const handleScrollToSkills = () => {
+    // Your custom functionality here
+    console.log("Scrolled to Skills section");
+  };
+
+ 
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex" }} >
       <CssBaseline />
    
       <AppBar
         sx={{
+                 
+          // width: '100%',      
           bgcolor: "transparent",
           mt: "10px",
           backdropFilter: " blur(2px)",
           background: "rgba(0,0,0,0.4)",
+          zIndex: 1000,        
         }}
         component="nav"
       >
@@ -142,12 +189,14 @@ function Navbar(props) {
               {"/>"}
             </span>
           </Typography>
+
+          
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
        
-            {navItems.map((item) => (
+            {navItems.map((item,i) => (
               <IconButton
                 className="nav-linkss"
-                key={item}
+                key={i}
                 sx={{
                   color: "#fff",
                   fontSize: "22px",
@@ -159,7 +208,7 @@ function Navbar(props) {
                   to={item}
                   smooth={true}
                   duration={800}
-                  onClick={handleClicked}
+                  // onClick={handleClicked}
                   // onSetActive={handleScrollToSkills}
                 >
                   {item}
@@ -181,8 +230,10 @@ function Navbar(props) {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
+            
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
+              bgcolor:'black',
               boxSizing: "border-box",
               width: drawerWidth,
               transition: 'background-color 0.8s ease-in-out'

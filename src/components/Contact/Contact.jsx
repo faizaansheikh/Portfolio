@@ -19,30 +19,31 @@ import AOS from 'aos'
 import 'aos/dist/aos.css'
 function Contact() {
   const GlassPaper = styled(Paper)`
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: rgba(255, 255, 255, 0.22);
     padding: 20px;
     margin: 80px;
     border-radius: 10px;
-    backdrop-filter: blur(30px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    // backdrop-filter: blur(30px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease-in-out;
     width:20px
     &:hover {
-      background-color: rgba(255, 255, 255, 0.25);
+      background-color: rgba(255, 255, 255, 0.1);
+      // border: 1px solid red
     }
     @media (max-width: 600px) {
-      /* Adjust margin for mobile screens */
+    
       margin: 20px;
     }
   
     @media (min-width: 601px) and (max-width: 960px) {
-      /* Adjust margin for tablets or smaller screens */
+    
       margin: 40px;
     }
   
     @media (min-width: 961px) {
-      /* Default margin for larger screens */
+   
       margin: 80px;
     }
   `;
@@ -71,9 +72,11 @@ function Contact() {
     pb: "10px",
   };
   const exp = [
-    "ABC XYZ analysis for supply chain optimization",
-    "Collaborated with cross-functional teams to ensure seamless integration of front-end ",
-    "Employed cutting-edge technologies such as [mention relevant technologies",
+    
+    "A software for supply chain optimisation called ABC XYZ analysis",
+    "led the charge to improve the functionality and user interface of an all-inclusive management system",
+    "Created aesthetically pleasing and intuitive dashboards that offer instantaneous insights and data visualisation",
+    "Created a variety of forms with an emphasis on user-friendly interfaces and clear form fields in order to collect a variety of data inputs"
   ];
   const mails = [
     {
@@ -137,7 +140,7 @@ function Contact() {
               Duration: 23 August 2022 - Present I have been contributing as a
               Front End Developer at Finosys for the past few years, actively shaping
               user interfaces and enhancing the overall user experience. During
-              this period, I have completed:
+              this period, I have finished:
             </Typography>
             {exp.map((el, i) => (
               <>
@@ -172,19 +175,22 @@ function Contact() {
 
               <Grid sx={{display:'flex',justifyContent:'center',alignItems:'center'}} item xs={12} md={12}>
                 <Grid
+                 data-aos='fade-right'
                   container
                   sx={{
                     display: "flex",
                     // ml: { xs: "0px", md: "50px" },
                     mr:'20px',
+                  
                     alignItems: "center",
+                    
                   }}
                 >
                   {mails.map((el, i) => (
                     <>
-                      <Grid key={i} item xs={12} md={4}>
+                      <Grid key={i} item xs={12} md={4}  sx={{ display: "flex", textDecoration: "none",justifyContent:{xs:'',md:'center'},alignItems:{xs:'',md:'center'} }}>
                         <Link
-                        data-aos='fade-right'
+                        
                           sx={{ display: "flex", textDecoration: "none",justifyContent:{xs:'',md:'center'},alignItems:{xs:'',md:'center'} }}
                           href={el.link}
                           target="_blank"
@@ -192,6 +198,7 @@ function Contact() {
                           <Avatar
                             sx={{
                               ...fontFam,
+                              zIndex:5,
                               bgcolor: el.color,
                               m: "8px",
                               "&:hover": { bgcolor: "#1b133f" },
