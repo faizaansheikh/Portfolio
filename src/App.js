@@ -9,9 +9,13 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import Contact from "./components/Contact/Contact";
 import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
-import { motion } from "framer-motion";
+import { motion, useScroll, useSpring } from "framer-motion";
 import { Box, Typography } from "@mui/material";
 import Intro from "./components/intro/Intro";
+import Certificate from "./components/certificate/Certificate";
+
+
+
 function App() {
   const [skill, setSkill] = useState(false);
   const [isLoad, setIsLoad] = useState(true);
@@ -47,6 +51,7 @@ function App() {
   setTimeout(() => {
     setIsLoad(false)
   }, 4000);
+ 
   return (
     <>
       {isLoad ? (
@@ -83,6 +88,7 @@ function App() {
         <Intro/>
       ) : (
         <>
+     
           <div
             className={`top-icon ${isVisible ? "visible" : ""}`}
             onClick={scrollToTop}
@@ -98,10 +104,15 @@ function App() {
             <Projects />
           </div>
 
+        <div>
+          <Certificate/>
+        </div>
+        
           <div data-aos="fade-up">
             <Skills skill={skill} />
           </div>
           <Contact />
+  
         </>
       )}
     </>

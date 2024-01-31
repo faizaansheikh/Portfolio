@@ -61,9 +61,9 @@ function Projects() {
               <Typography variant="h5" sx={styling}>
                 {"<"}Projects{"/>"}
               </Typography>
-              <Typography variant="h5" sx={stylingTwo}>
+              {/* <Typography variant="h5" sx={stylingTwo}>
                 Here are some of my basic projects
-              </Typography>
+              </Typography> */}
             </Grid>
             <Grid item xs={12} md={8}></Grid>
 

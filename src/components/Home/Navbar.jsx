@@ -16,8 +16,9 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import "./navbar.css";
 import { Events, Link, scrollSpy, scroller } from "react-scroll";
+
 const drawerWidth = 240;
-const navItems = ["Home", "Projects", "Skills", "Contact"];
+const navItems = ["Home", "Projects", "Certificates","Skills", "Contact"];
 
 function Navbar(props) {
   const { window, setSkill } = props;
@@ -43,7 +44,7 @@ function Navbar(props) {
     // setSkill(true);
     setMobileOpen(false)
   };
-  
+  const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"]
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center",color:'white' }}>
        <Typography
@@ -69,7 +70,8 @@ function Navbar(props) {
       <Divider />
       <List>
         {navItems.map((item,i) => (
-          <ListItem key={i} disablePadding>
+          <ListItem sx={{border:`2px solid ${colors[i]}`,mt:'13px',borderRadius:'10px',"&:hover":{border:`2px solid white`}}} key={i} disablePadding>
+            <Box sx={{borderRadius:'100%',border:`2px solid ${colors[i]}`,width:'30px',height:'30px',ml:'10px'}}></Box>
             <ListItemButton sx={{ textAlign: "center" }}>
               {/* <ListItemText primary={item} /> */}
               <IconButton
@@ -80,8 +82,9 @@ function Navbar(props) {
                   color: "white",
                   fontSize: "22px",
                   fontWeight: "300",
-                  pl: "30px",
-                  pt:'20px',
+                  // pl: "30px",
+                  // pt:'20px',
+                  
                   '& hover':{color:'grey'}
                 }}
               >
@@ -115,8 +118,9 @@ function Navbar(props) {
 
   return (
     <Box sx={{ display: "flex" }} >
+    
       <CssBaseline />
-   
+      
       <AppBar
         sx={{
                  
@@ -130,6 +134,7 @@ function Navbar(props) {
         component="nav"
       >
         <Toolbar>
+       
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -146,6 +151,7 @@ function Navbar(props) {
           >
            
             <ReorderIcon size='15px'/>
+         
           </IconButton>
           <IconButton
             color="inherit"
