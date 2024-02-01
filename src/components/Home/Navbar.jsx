@@ -44,7 +44,7 @@ function Navbar(props) {
     // setSkill(true);
     setMobileOpen(false)
   };
-  const colors = ["#FF008C", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"]
+  const colors = ["#4400FF", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"]
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center",color:'white' }}>
        <Typography
