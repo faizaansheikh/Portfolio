@@ -1,29 +1,32 @@
 
-
 .projects-section {
-    position: relative;
+    /* position: relative;
     overflow: hidden;
     width: auto;
-    height: auto;
+    height: auto; */
     display: flex;
     justify-content: center;
-    flex-direction: column;
+    background-color: #161916;
+    height: 100vh;
+    /* flex-direction: column; */
     /* max-height: 100vh; */
     /* max-height: 100vh; */
 }
 
 .projects-section::before {
-    content: "";
-    background-image: url('../images/bg88.jpg'); /* Replace with your image path */
-    background-size: cover;
-    filter: brightness(70%);
-    position: absolute;
+    /* content: ""; */
+    /* background-image: url('../images/bgport.png'); */
+     /* Replace with your image path */
+     /* background-color: #292929; */
+    /* background-size: cover; */
+    /* filter: brightness(70%); */
+    /* position: absolute;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    left: 0; */
+    /* width: 100%; */
+    /* height: 100vh; */
     /* background-position: 70%; */
-    z-index: -1;
+    /* z-index: -1; */
   }
   .boxstyle{
     width: 500px;
@@ -75,4 +78,17 @@
     /* animation: unset; */
     /* margin-top: 18vh; */
     transform: perspective(1000px) rotateX(0deg) rotateY(0deg) rotateZ(0deg);
+  }
+  .start-text-p{
+    font-weight: lighter;
+    /* font-family: Arial Narrow; */
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Edu VIC WA NT Beginner', cursive;
+    font-family: 'Lobster', cursive;
+    font-family: 'Oswald', sans-serif;
+    font-family: 'Teko', sans-serif;
+    font-family: 'ZCOOL QingKe HuangYou', sans-serif;
+    margin: 20px 0;
+    font-size: 29px;
+    color:aliceblue
   }

@@ -1,0 +1,1 @@
+export const FAColor = '#29f2e1'

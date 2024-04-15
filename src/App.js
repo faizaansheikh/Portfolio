@@ -13,6 +13,7 @@ import { motion, useScroll, useSpring } from "framer-motion";
 import { Box, Typography } from "@mui/material";
 import Intro from "./components/intro/Intro";
 import Certificate from "./components/certificate/Certificate";
+import NP from "./components/Projects/NP";
 
 
 
@@ -101,7 +102,7 @@ function App() {
             <Home />
           </div>
           <div data-aos="fade-down">
-            <Projects />
+            <NP />
           </div>
 
         <div>

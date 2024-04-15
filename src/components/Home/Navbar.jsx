@@ -16,7 +16,8 @@ import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import "./navbar.css";
 import { Events, Link, scrollSpy, scroller } from "react-scroll";
-
+// import { FAColor } from "../../theme";
+import { FAColor } from "../../theme";
 const drawerWidth = 240;
 const navItems = ["Home", "Projects", "Certificates","Skills", "Contact"];
 
@@ -63,7 +64,7 @@ function Navbar(props) {
             {/* 25101F */}
             <span style={{ color: "", fontWeight: "bold" }}>{"<"}</span>
             Portfolio{" "}
-            <span style={{ color: "mediumslateblue", fontWeight: "bold" }}>
+            <span style={{ color: FAColor, fontWeight: "bold" }}>
               {"/>"}
             </span>
           </Typography>
@@ -171,7 +172,7 @@ function Navbar(props) {
           >
             <span style={{ color: "", fontWeight: "bold" }}>{"<"}</span>
             Portfolio{" "}
-            <span style={{ color: "mediumslateblue", fontWeight: "bold" }}>
+            <span style={{ color: FAColor, fontWeight: "bold" }}>
               {"/>"}
             </span>
           </IconButton>
@@ -191,7 +192,7 @@ function Navbar(props) {
             {/* 25101F */}
             <span style={{ color: "", fontWeight: "bold" }}>{"<"}</span>
             Portfolio{" "}
-            <span style={{ color: "mediumslateblue", fontWeight: "bold" }}>
+            <span style={{ color: FAColor, fontWeight: "bold" }}>
               {"/>"}
             </span>
           </Typography>
