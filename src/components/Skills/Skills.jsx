@@ -14,6 +14,7 @@ import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import ClearIcon from '@mui/icons-material/Clear';
+import { FAColor } from "../../theme";
 function Skills({ skill }) {
 
  const [isActive,setIsActive] = useState(false)
@@ -125,7 +126,7 @@ function Skills({ skill }) {
           <Typography sx={stylingTwo}>
             I specialize in crafting dynamic and visually appealing user
             interfaces using a powerful combination of
-            <span style={{ color: "#6927aa", fontSize: "18px" }}>
+            <span style={{ color: FAColor, fontSize: "18px" }}>
               {" "}
               HTML, CSS, JavaScript, React, Next.js
             </span>{" "}
@@ -149,9 +150,9 @@ function Skills({ skill }) {
                color: '#FFFFFF',
                fontSize: { sm: '10px', md: '15px' },
                m: { xs: '5px', md: '0px' },
-               border:'2px solid #6927aa',
+               border:`2px solid ${FAColor}`,
                mb: { xs: '13px', md: '10px' },
-               '&:hover': { border: '2px solid #FFFFFF',color:'#6927aa' },
+               '&:hover': { border: '2px solid #FFFFFF',color:FAColor },
               
              }}
              key={i}
@@ -204,7 +205,7 @@ function Skills({ skill }) {
                   styles={buildStyles({
                     backgroundColor: "black",
                     textColor: "#fff",
-                    pathColor: "#6927aa",
+                    pathColor: FAColor,
                     trailColor: "white",
                     textSize: "10px", // Adjust the text size as needed
                     pathTransitionDuration: 1, // Control the animation duration
