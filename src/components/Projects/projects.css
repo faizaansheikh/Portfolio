@@ -4,10 +4,10 @@
     overflow: hidden;
     width: auto;
     height: auto; */
-    display: flex;
+    /* display: flex; */
     justify-content: center;
     background-color: #161916;
-    height: 100vh;
+    /* height: 100vh; */
     /* flex-direction: column; */
     /* max-height: 100vh; */
     /* max-height: 100vh; */
