@@ -126,7 +126,7 @@ function Contact() {
     m: { xs: "12px", md: "8px" },
     letterSpacing: "1px",
   };
-  const links1 = [<SmartphoneIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }}/>,<GitHubIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }}/> ,<LinkedInIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }}/> ,<MailIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }}/>  ]
+  const links1 = [<SmartphoneIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />, <GitHubIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />, <LinkedInIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />, <MailIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />]
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration
@@ -175,20 +175,25 @@ function Contact() {
       <Typography variant="h5" sx={styling}>
         {"<"}Contact{"/>"}
       </Typography>
-      <div style={{display:'flex',justifyContent: 'center', alignItems: 'center'}} id='Contact'>
-      <Grid container sx={{ mb: "0px", mt: '15px', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center',border: '1px solid white', borderRadius: '10px', p: '20px ',backdropFilter: 'blur(8px)', bgcolor: '#1e1d1d' ,width:'842.22px',mb:'40px'}}>
-        {links1.map((el, i) => (
-          <Grid key={i} item xs={12} md={2.5} sx={{display:'flex',justifyContent:'center',alignItems:'center'}}>
-            <Box onClick={i===0 || i===3 ? handleOpen : ''} sx={{ width: { xs: '100%', md: '100px' }, height: { xs: '65px', md: '100px' }, bgcolor: '#2d2c2c', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', mb:{xs:'20px',md:'0px'},borderRadius: '5px', '&:hover': { border: '1px solid white', cursor: 'pointer' } }}>{el}</Box>
-          </Grid>
-        ))}
-  </Grid>
+      <Box>
+        <Typography variant="h5" sx={{ ...styling, color: FAColor ,pb:'0px',pt:'0px'}}>
+        Here is how you can get in touch with me
+        </Typography>
+      </Box>
+      <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} id='Contact'>
+        <Grid container sx={{ mb: "0px", mt: '15px', mx: { xs: '20px', md: '' },display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', border: '1px solid white', borderRadius: '10px', p: '20px ', backdropFilter: 'blur(8px)', bgcolor: '#1e1d1d', width: '842.22px', mb: '40px' }}>
+          {links1.map((el, i) => (
+            <Grid key={i} item xs={12} md={2.5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Box onClick={i === 0 || i === 3 ? handleOpen : ''} sx={{ width: { xs: '100%', md: '100px' }, height: { xs: '65px', md: '100px' }, bgcolor: '#2d2c2c', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', mb: { xs: '20px', md: '0px' }, borderRadius: '5px', '&:hover': { border: `1px solid ${FAColor}`, cursor: 'pointer', } }}>{el}</Box>
+            </Grid>
+          ))}
+        </Grid>
       </div>
-<Modal1 open={open} setOpen={setOpen} handleOpen={handleOpen} handleClose={handleClose}/>
+      <Modal1 open={open} setOpen={setOpen} handleOpen={handleOpen} handleClose={handleClose} />
 
-{/* data-aos='fade-left' */}
-        {/* <GlassPaper elevation={3}> */}
-        {/* <Grid container>
+      {/* data-aos='fade-left' */}
+      {/* <GlassPaper elevation={3}> */}
+      {/* <Grid container>
              
  sx={{display:'flex',mx:{xs:'20px',md:''},px:{xs:'20px',md:''},border:'1px solid white',borderRadius:'10px',p:'20px '}}
 
@@ -257,7 +262,7 @@ function Contact() {
             </Grid> */}
 
 
-    
+
 
 
 
