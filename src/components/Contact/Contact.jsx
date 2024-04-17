@@ -1,4 +1,3 @@
-
 import React, { useEffect } from "react";
 import "./contact.css";
 import {
@@ -127,6 +126,14 @@ function Contact() {
     m: { xs: "12px", md: "8px" },
     letterSpacing: "1px",
   };
+  const handleOther = (el)=>{
+    console.log(el);
+    if(el === 1){
+      window.open('https://github.com/faizaansheikh','_blank')
+    }else{
+      window.open('https://www.linkedin.com/in/faizaan-imran-711305258','_blank')
+    }
+  }
   const links1 = [<SmartphoneIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />, <GitHubIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />, <LinkedInIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />, <MailIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />]
   useEffect(() => {
     AOS.init({
@@ -185,7 +192,7 @@ function Contact() {
         <Grid container sx={{ mb: "0px", mt: '15px', mx: { xs: '20px', md: '' },display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', border: '1px solid white', borderRadius: '10px', p: '20px ', backdropFilter: 'blur(8px)', bgcolor: '#1e1d1d', width: '842.22px', mb: '40px' }}>
           {links1.map((el, i) => (
             <Grid key={i} item xs={12} md={2.5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-              <Box onClick={i === 0 || i === 3 ? handleOpen : ''} sx={{ width: { xs: '100%', md: '100px' }, height: { xs: '65px', md: '100px' }, bgcolor: '#2d2c2c', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', mb: { xs: '20px', md: '0px' }, borderRadius: '5px', '&:hover': { border: `1px solid ${FAColor}`, cursor: 'pointer', } }}>{el}</Box>
+              <Box onClick={i === 0 || i === 3 ? handleOpen : ()=>handleOther(i)} sx={{ width: { xs: '100%', md: '100px' }, height: { xs: '65px', md: '100px' }, bgcolor: '#2d2c2c', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', mb: { xs: '20px', md: '0px' }, borderRadius: '5px', '&:hover': { border: `1px solid ${FAColor}`, cursor: 'pointer', } }}>{el}</Box>
             </Grid>
           ))}
         </Grid>
