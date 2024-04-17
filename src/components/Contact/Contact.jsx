@@ -134,7 +134,7 @@ function Contact() {
       window.open('https://www.linkedin.com/in/faizaan-imran-711305258','_blank')
     }
   }
-  const links1 = [<SmartphoneIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />, <GitHubIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />, <LinkedInIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />, <MailIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />]
+  const links1 = [<SmartphoneIcon sx={{ color: 'green', fontSize: { xs: '35px', md: '55px' } }} />, <GitHubIcon sx={{ color: 'whitesmoke', fontSize: { xs: '35px', md: '55px' } }} />, <LinkedInIcon sx={{ color: '#0A66C1', fontSize: { xs: '35px', md: '55px' } }} />, <MailIcon sx={{ color: '#F6D032', fontSize: { xs: '35px', md: '55px' } }} />]
   useEffect(() => {
     AOS.init({
       duration: 1000, // Animation duration
