@@ -45,7 +45,7 @@ function Navbar(props) {
     // setSkill(true);
     setMobileOpen(false)
   };
-  const colors = ["#4400FF", "#D309E1", "#9C1AFF", "#7700FF", "#4400FF"]
+  const colors = ["#7700FF", "#4400FF", "#9C1AFF", "#7700FF", "#4400FF"]
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center",color:'white' }}>
        <Typography
@@ -71,7 +71,7 @@ function Navbar(props) {
       <Divider />
       <List>
         {navItems.map((item,i) => (
-          <ListItem sx={{border:`2px solid ${colors[i]}`,mt:'13px',borderRadius:'10px',"&:hover":{border:`2px solid white`}}} key={i} disablePadding>
+          <ListItem sx={{border:`2px solid ${FAColor}`,mt:'13px',borderRadius:'10px',"&:hover":{border:`2px solid white`}}} key={i} disablePadding>
             <Box sx={{borderRadius:'100%',border:`2px solid ${colors[i]}`,width:'30px',height:'30px',ml:'10px'}}></Box>
             <ListItemButton sx={{ textAlign: "center" }}>
               {/* <ListItemText primary={item} /> */}
