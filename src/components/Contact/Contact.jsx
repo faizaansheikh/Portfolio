@@ -185,13 +185,13 @@ function Contact() {
       </Typography>
       <Box>
         <Typography variant="h5" sx={{ ...styling, color: FAColor ,pb:'0px',pt:'0px'}}>
-        Here is how you can get in touch with me
+        You can contact me using the information below
         </Typography>
       </Box>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }} id='Contact'>
         <Grid container sx={{ mb: "0px", mt: '15px', mx: { xs: '20px', md: '' },display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', border: '1px solid white', borderRadius: '10px', p: '20px ', backdropFilter: 'blur(8px)', bgcolor: '#1e1d1d', width: '842.22px', mb: '40px' }}>
           {links1.map((el, i) => (
-            <Grid key={i} item xs={12} md={2.5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+            <Grid key={i} data-aos={i%2 === 0 ?'fade-left':'fade-right'} item xs={12} md={2.5} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
               <Box onClick={i === 0 || i === 3 ? handleOpen : ()=>handleOther(i)} sx={{ width: { xs: '100%', md: '100px' }, height: { xs: '65px', md: '100px' }, bgcolor: '#2d2c2c', display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', mb: { xs: '20px', md: '0px' }, borderRadius: '5px', '&:hover': { border: `1px solid ${FAColor}`, cursor: 'pointer', } }}>{el}</Box>
             </Grid>
           ))}
